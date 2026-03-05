@@ -1,0 +1,29 @@
+# Добавление пользователя
+def add_user_to_db(user_id, name, age, phone):
+    conn = sqlite3.connect('bot_database.db')
+    cursor = conn.cursor()
+    cursor.execute('''
+        INSERT OR REPLACE INTO users (user_id, name, age, phone, last_activity)
+        VALUES (?, ?, ?, ?, ?)
+    ''', (user_id, name, age, phone, datetime.now()))
+    conn.commit()
+    conn.close()
+
+# Получение пользователя
+def get_user_from_db(user_id):
+    conn = sqlite3.connect('bot_database.db')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM users WHERE user_id = ?', (user_id,))
+    user = cursor.fetchone()
+    conn.close()
+    return user
+
+# Обновление активности
+def update_user_activity(user_id):
+    conn = sqlite3.connect('bot_database.db')
+    cursor = conn.cursor()
+    cursor.execute('''
+        UPDATE users SET last_activity = ? WHERE user_id = ?
+    ''', (datetime.now(), user_id))
+    conn.commit()
+    conn.close()
