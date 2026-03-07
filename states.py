@@ -1,19 +1,12 @@
-# states.py
-# ============================================
-# Состояния FSM (Finite State Machine)
-# ============================================
-
 from aiogram.fsm.state import State, StatesGroup
 
-class Registration(StatesGroup):
-    """Состояния для регистрации пользователя"""
+class Register(StatesGroup):
     name = State()
     age = State()
     phone = State()
 
-class EventSelection(StatesGroup):
-    """Состояния для подбора мероприятия"""
+class EventSearch(StatesGroup):
     budget = State()
-    category = State()
-    vibe = State()
+    place = State()
+    atmosphere = State()
     time = State()
