@@ -1,47 +1,59 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-main_menu = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton(text="Подобрать мероприятие")],
-        [KeyboardButton(text="События в городе")],
-        [KeyboardButton(text="Не хочу думать")]
-    ],
-    resize_keyboard=True
-)
 
-places_keyboard = ReplyKeyboardMarkup(
-    keyboard=[
+def main_menu():
+
+    keyboard = [
+        [KeyboardButton(text="🎯 Подобрать мероприятие")],
+        [KeyboardButton(text="🏙 События недели")],
+        [KeyboardButton(text="🎲 Случайное событие")]
+    ]
+
+    return ReplyKeyboardMarkup(
+        keyboard=keyboard,
+        resize_keyboard=True
+    )
+
+
+def places():
+
+    keyboard = [
         [KeyboardButton(text="Кино")],
-        [KeyboardButton(text="Театр")],
+        [KeyboardButton(text="Концерт")],
         [KeyboardButton(text="Выставка")],
         [KeyboardButton(text="Мастер-класс")],
         [KeyboardButton(text="Вечеринка")],
-        [KeyboardButton(text="Концерт")]
-    ],
-    resize_keyboard=True
-)
+        [KeyboardButton(text="Театры и стендапы")]
+    ]
 
-atmosphere_keyboard = ReplyKeyboardMarkup(
-    keyboard=[
+    return ReplyKeyboardMarkup(keyboard=keyboard, resize_keyboard=True)
+
+
+def atmosphere():
+
+    keyboard = [
         [KeyboardButton(text="Спокойная")],
         [KeyboardButton(text="Активная")]
-    ],
-    resize_keyboard=True
-)
+    ]
 
-time_keyboard = ReplyKeyboardMarkup(
-    keyboard=[
+    return ReplyKeyboardMarkup(keyboard=keyboard, resize_keyboard=True)
+
+
+def time():
+
+    keyboard = [
         [KeyboardButton(text="День")],
         [KeyboardButton(text="Вечер")]
-    ],
-    resize_keyboard=True
-)
+    ]
 
-event_actions = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton(text="Другое мероприятие")],
-        [KeyboardButton(text="Ссылка на мероприятие")],
-        [KeyboardButton(text="Главное меню")]
-    ],
-    resize_keyboard=True
-)
+    return ReplyKeyboardMarkup(keyboard=keyboard, resize_keyboard=True)
+
+
+def event_buttons():
+
+    keyboard = [
+        [KeyboardButton(text="🔁 Другое мероприятие")],
+        [KeyboardButton(text="🏠 Главное меню")]
+    ]
+
+    return ReplyKeyboardMarkup(keyboard=keyboard, resize_keyboard=True)
